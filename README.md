@@ -2,7 +2,7 @@
 
 * **Performing CRUD operations**
 
-![](/static/todo1.gif)
+![](task/templates/static/todo1.gif)
 
 * **Multi-user acount**
-![](/static/todo2.gif)
+![](task/templates/static/todo2.gif)
