@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete{% endblock %}
+
+{% block content %}
+
+<div  class="center-column-del">
+<div class="del_text"><h5>Are you sure to delete: <span>{{item}}</span></h5></div>
+<form method="post" action =''> 
+    {% csrf_token %}
+    <div class="btnwidth">
+    <input  class="btn btn-info" type="submit" placeholder="delete" name = "create task">
+    <span><a href=" {% url 'index' %} " class="cancel-btn">cancel</a></span>
+    </div>
+</form>
+
+
+</div>
+
+{% endblock %}

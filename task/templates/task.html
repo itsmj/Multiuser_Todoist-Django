@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}ToDo{% endblock %}
+
+    {%  block content %}
+
+
+    <div class="heading">
+        <h2><b>Start Making Your <span>ToDo</span> List</b></h2>
+    </div>
+
+    <div  class="center-column">
+        <div class="alert">
+        {% for x in messages %}
+			<p> {{x}} </p>
+            {% endfor %}
+        </div>    
+        <form method="post" action =" "> 
+        {% csrf_token %}
+        {{form.title}}
+        <div class="btnwidth">
+        <input class="btn btn-info" type="submit" name = "create task">
+        </div>
+        </form>
+
+        <div class="todo-list">
+        {% for i in list %}
+            <div class="item-row">
+                
+                <div>
+                    
+                {% if i.complete == True  %}
+                <p><strike>{{i}}</strike></p>
+                {% else %}
+                <p>{{i}}</p>
+                {% endif %}
+                </div>
+               
+                <div class="btnright">
+                <a href="{% url 'update' i.id %}" class="btn btn-sm btn-info">UPDATE</a>
+                <a href="{% url 'delete' i.id %}" class="btn btn-sm btn-danger">DELETE</a>
+                </div>
+            </div> 
+
+            <div class="date">{{i.created}}</div>
+            
+        {% endfor %}
+        </div>
+    </div>
+
+    
+
+{% endblock %}
+
+
+
+

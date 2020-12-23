@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Montserrat&display=swap" rel="stylesheet">
+
+
+    <style>
+        body{
+            
+            background-color: tomato;;
+        }
+    
+        input{
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            
+        }
+    
+        input::placeholder {
+          color: #d3d3d3;
+        }
+    
+        .submit{
+            background-color: #6BA3E8;
+        }
+    
+        .center-column{
+            width:600px;
+            margin: 20px auto;
+            padding:20px;
+            background-color: #fff;
+            border-radius: 3px;
+            box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
+        }
+        .center-column-del{
+            width:600px;
+            margin: 150px auto 0px;
+            padding:20px;
+            background-color: #fff;
+            border-radius: 3px;
+            box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
+        }
+    
+        .item-row{
+            background : linear-gradient(120deg,#080a50,#e80fc4);
+            margin: 10px;
+            padding: 20px;
+            border-radius: 3px;
+            color: #fff;
+            font-size: 16px;
+            box-shadow: 0px -1px 10px -4px rgba(0,0,0,0.75);
+        }
+    
+        .btn-danger{
+            background-color: #f70202;
+            border-color: #f70202;
+        }
+
+        .heading{
+            text-align: center;
+            background-color: yellow;
+            padding-top: 18px;
+            padding-bottom: 18px;
+            margin: 20px 40px;
+            }
+
+         .heading h2{font-family: 'Langar', cursive;}  
+         .heading span{background-color: tomato;} 
+
+         .btnwidth input {width: 100px; margin-left: 200px;}
+
+        .btnright{padding-top: 0px; }
+        .item-row{display: flex; justify-content: space-between;}
+        .item-row p{font-size: larger;}
+        .write{width: 100%;}
+        .cancel-btn{padding: 0.375rem .75rem; padding-bottom: 10px; text-decoration: none; 
+            color: white; background-color: black;}
+        .cancel-btn:hover{background-color: chocolate; text-decoration: none; color: #fff}
+        .del_text{    background : linear-gradient(120deg,#080a50,#e80fc4); height: 10vh;}
+        .del_text h5{padding-top: 16px; padding-left: 10px; color: white;}
+        .del_text span{background-color: yellow; padding-left: 5px; padding-right: 5px; color: black;}
+        .date{padding-left: 10px; font-size:small;}
+        .navbar-nav {margin-left: 75%;}
+        .navbar{font-size: 20px;font-family: 'Langar', cursive; font-weight: bold; background-color: white; }
+        .navbar-brand{margin-left: 20px;}
+        .alert p{
+            text-align: center; font-family: 'Langar', cursive;
+            color : black;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg ">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="/">TODO</a>
+      
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul class="navbar-nav mt-2 mt-lg-0 ">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link">Hello,{{user.username}}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="logout">Logout</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="signup">SignUp</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="login">Login</a>
+              </li>
+              {% endif %}
+            </ul>
+        </div>
+    </nav>
+      
+    {%  block content %}
+
+    {% endblock %}
+
+    
+     
+</body>
+</html>
+
+
+
