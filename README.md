@@ -8,6 +8,6 @@
 
 
 
-* **Multi-user acount**
+* **Multi-user account**
 
 ![](task/templates/static/todo2.gif)
